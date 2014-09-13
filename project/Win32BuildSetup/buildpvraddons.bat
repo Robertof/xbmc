@@ -16,11 +16,11 @@ SET SOURCE_DIR=%TMP_DIR%\%SOURCE%
 SET BUILT_ADDONS_DIR=%SOURCE_DIR%\addons
 
 REM check if MSBuild.exe is used because it requires different command line switches
-IF "%msbuildemitsolution%" == "1" (
+rem IF "%msbuildemitsolution%" == "1" (
   set OPTS_EXE=%SOURCE_DIR%\project\VS2010Express\xbmc-pvr-addons.sln /t:Build /p:Configuration="Release"
-) ELSE (
-  set OPTS_EXE=%SOURCE_DIR%\project\VS2010Express\xbmc-pvr-addons.sln /build Release
-)
+rem ) ELSE (
+rem   set OPTS_EXE=%SOURCE_DIR%\project\VS2010Express\xbmc-pvr-addons.sln /build Release
+rem )
 
 REM Try wrapped msysgit - must be in the path
 SET GITEXE=git.cmd
@@ -62,7 +62,8 @@ CD "%CUR_DIR%"
 
 REM build xbmc-pvr-addons.sln
 ECHO Building PVR addons
-%1 %OPTS_EXE%
+rem "C:\Program Files (x86)\MSBuild\12.0\Bin\amd64\MSBuild.exe" %OPTS_EXE%
+"C:\Windows\Microsoft.NET\Framework64\v4.0.30319\MSBuild.exe" %OPTS_EXE%
 
 IF %errorlevel%==1 (
   goto fail

@@ -53,14 +53,14 @@ IF %comp%==vs2010 (
 		set OPTS_EXE="..\VS2010Express\XBMC for Windows.sln" /t:Build /p:Configuration="%buildconfig%"
 		set CLEAN_EXE="..\VS2010Express\XBMC for Windows.sln" /t:Clean /p:Configuration="%buildconfig%"
 	) ELSE (
-		IF EXIST "%VS100COMNTOOLS%\..\IDE\devenv.com" (
-			set NET="%VS100COMNTOOLS%\..\IDE\devenv.com"
-		) ELSE IF EXIST "%VS100COMNTOOLS%\..\IDE\devenv.exe" (
-			set NET="%VS100COMNTOOLS%\..\IDE\devenv.exe"
-		) ELSE IF "%VS100COMNTOOLS%"=="" (
+		IF EXIST "%VS120COMNTOOLS%\..\IDE\devenv.com" (
+			set NET="%VS120COMNTOOLS%\..\IDE\devenv.com"
+		) ELSE IF EXIST "%VS120COMNTOOLS%\..\IDE\devenv.exe" (
+			set NET="%VS120COMNTOOLS%\..\IDE\devenv.exe"
+		) ELSE IF "%VS120COMNTOOLS%"=="" (
 			set NET="%ProgramFiles%\Microsoft Visual Studio 10.0\Common7\IDE\VCExpress.exe"
-		) ELSE IF EXIST "%VS100COMNTOOLS%\..\IDE\VCExpress.exe" (
-			set NET="%VS100COMNTOOLS%\..\IDE\VCExpress.exe"
+		) ELSE IF EXIST "%VS120COMNTOOLS%\..\IDE\VCExpress.exe" (
+			set NET="%VS120COMNTOOLS%\..\IDE\VCExpress.exe"
 		)
 
 		set OPTS_EXE="..\VS2010Express\XBMC for Windows.sln" /build "%buildconfig%"
@@ -72,7 +72,9 @@ IF %comp%==vs2010 (
      set DIETEXT=Visual Studio .NET 2010 Express was not found.
 	 goto DIE
   )
-  
+  rem set NET="C:\Program Files (x86)\MSBuild\12.0\Bin\amd64\MSBuild.exe"
+  rem echo %NET%
+  rem pause
   set EXE= "..\VS2010Express\XBMC\%buildconfig%\XBMC.exe"
   set PDB= "..\VS2010Express\XBMC\%buildconfig%\XBMC.pdb"
   
