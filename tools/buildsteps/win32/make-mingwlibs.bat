@@ -2,7 +2,7 @@
 rem batch file to compile mingw libs via BuildSetup
 
 rem set M$ env
-call "%VS100COMNTOOLS%..\..\VC\bin\vcvars32.bat"
+call "%VS120COMNTOOLS%..\..\VC\bin\vcvars32.bat"
 
 SET PROMPTLEVEL=prompt
 SET BUILDMODE=clean

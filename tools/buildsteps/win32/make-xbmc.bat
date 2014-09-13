@@ -36,12 +36,12 @@ SET BS_DIR=%WORKSPACE%\project\Win32BuildSetup
 cd %BS_DIR%
 
 IF %comp%==vs2010 (
-  IF "%VS100COMNTOOLS%"=="" (
+  IF "%VS120COMNTOOLS%"=="" (
 		set NET="%ProgramFiles%\Microsoft Visual Studio 10.0\Common7\IDE\VCExpress.exe"
-	) ELSE IF EXIST "%VS100COMNTOOLS%\..\IDE\VCExpress.exe" (
-		set NET="%VS100COMNTOOLS%\..\IDE\VCExpress.exe"
-	) ELSE IF EXIST "%VS100COMNTOOLS%\..\IDE\devenv.exe" (
-		set NET="%VS100COMNTOOLS%\..\IDE\devenv.exe"
+	) ELSE IF EXIST "%VS120COMNTOOLS%\..\IDE\VCExpress.exe" (
+		set NET="%VS120COMNTOOLS%\..\IDE\VCExpress.exe"
+	) ELSE IF EXIST "%VS120COMNTOOLS%\..\IDE\devenv.exe" (
+		set NET="%VS120COMNTOOLS%\..\IDE\devenv.exe"
 	)
 )
 
